@@ -1,0 +1,22 @@
+{
+  "name": "rsi.demo",
+  "version": "0.0.1",
+  "description": "A demo application that spins up an rsi server.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "serve": "tsc && node dist/index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@rsi/server": "https://github.com/wzr1337/rsi.server",
+    "command-line-args": "^3.0.5"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.2",
+    "@types/node": "^9.3.0"
+  }
+}
