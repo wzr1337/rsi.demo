@@ -1,5 +1,6 @@
 import { PluginLoader, RsiServer, ServiceRegistry } from '@rsi/server';
 import { join } from 'path';
+import { Medialibrary } from '@rsi-plugins/medialibrary';
 
 const DEFAULTRUNOPTIONS = {
     port: 3000,
@@ -37,6 +38,12 @@ if (options.serviceRegistry || options.serviceRegistry !== '') {
 const server: RsiServer = new RsiServer();
 server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 
+/*
 const plugins: PluginLoader = new PluginLoader(server);
 plugins.loadPlugin(join(__dirname, '..', 'node_modules', '@rsi-plugins', 'medialibrary', 'dist'));
+*/
+
+const medialibrary: Medialibrary = new Medialibrary();
+server.addService(medialibrary);
+
 
