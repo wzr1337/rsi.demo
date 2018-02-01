@@ -12,7 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@rsi/server": "https://github.com/wzr1337/rsi.server",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/restart",
     "command-line-args": "^3.0.5"
   },
   "devDependencies": {
