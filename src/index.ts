@@ -37,8 +37,6 @@ if (options.serviceRegistry || options.serviceRegistry !== '') {
 const server: RsiServer = new RsiServer();
 server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 
-if (!cla.hasOwnProperty('exclude-plugins')) {
-    const plugins: PluginLoader = new PluginLoader(server);
-    plugins.loadPlugins(join(__dirname, '..', 'node_modules', '@rsi-plugins', 'cq.all', 'dist'));
-}
+const plugins: PluginLoader = new PluginLoader(server);
+plugins.loadPlugin(join(__dirname, '..', 'node_modules', '@rsi-plugins', 'medialibrary', 'dist'));
 
