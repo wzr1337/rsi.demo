@@ -4,16 +4,29 @@
   "description": "A demo application that spins up an rsi server.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "watch": {
+    "serve": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts",
+      "quiet": false
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
+    "watch": "npm-watch",
+    "start": "node dist/index.js --port 3000",
     "serve": "tsc && node dist/index.js"
   },
-  "author": "",
+  "author": "Dr. Patrick Bartsch",
   "license": "MIT",
   "dependencies": {
     "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/restart",
-    "command-line-args": "^3.0.5"
+    "@rsi-plugins/medialibrary": "https: //github.com/wzr1337/rsi-plugins.medialibrary",
+    "command-line-args": "^3.0.5",
+    "npm-watch": "^0.3.0"
   },
   "devDependencies": {
     "typescript": "^2.6.2",
