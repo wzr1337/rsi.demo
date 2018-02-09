@@ -1,6 +1,5 @@
-import { PluginLoader, RsiServer, ServiceRegistry } from '@rsi/server';
-import * as ml from '@rsi-plugins/medialibrary';
-import { join } from 'path';
+import { RsiServer } from '@rsi/server';
+import * as ml from '@rsi-plugins/media';
 
 const DEFAULTRUNOPTIONS = {
   port: 3000,
