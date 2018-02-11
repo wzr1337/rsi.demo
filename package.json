@@ -23,8 +23,8 @@
   "author": "Dr. Patrick Bartsch",
   "license": "MIT",
   "dependencies": {
-    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/restart",
-    "@rsi-plugins/medialibrary": "https: //github.com/wzr1337/rsi-plugins.medialibrary",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/async-resource-issue-3",
+    "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.medialibrary#feature/async-resource-issue-3",
     "command-line-args": "^3.0.5",
     "npm-watch": "^0.3.0"
   },
