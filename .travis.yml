@@ -1,0 +1,35 @@
+# use the latest ubuntu distro
+dist: trusty
+# require sudo
+sudo: required
+
+# this is a node project
+language: node_js
+node_js:
+- '6'
+
+compiler:
+  - gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-6
+      - g++-6
+      - cmake
+
+# proxy reset for tests
+env:
+  - http_proxy=''
+  - HTTP_PROXY=''
+
+git:
+  submodules: false
+
+before_install:
+  # init the plugins ??
+install:
+  - npm install
+script:
+  - npm run serve
