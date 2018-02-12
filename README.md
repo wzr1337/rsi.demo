@@ -6,6 +6,8 @@ This project implements the Volkswagen Infotainment Web Interface (viwi/RSI) as 
 * [@RSI/medialibrary](https://github.com/wzr1337/rsi-plugins.medialibrary)
 
 
+[![Build Status](https://travis-ci.org/wzr1337/rsi.demo.svg?branch=master)](https://travis-ci.org/wzr1337/rsi.demo)
+
 ## Build the software
 As this project uses TypeScript, you need to complie it into regular JavaScript first using 
 

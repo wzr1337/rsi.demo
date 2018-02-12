@@ -9,15 +9,15 @@ node_js:
 - '6'
 
 compiler:
-  - gcc
+#  - gcc
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - gcc-6
-      - g++-6
-      - cmake
+#      - gcc-6
+#      - g++-6
+#      - cmake
 
 # proxy reset for tests
 env:
