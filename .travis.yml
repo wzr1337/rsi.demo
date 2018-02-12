@@ -32,4 +32,4 @@ before_install:
 install:
   - npm install
 script:
-  - npm run serve
+  - npm run test
