@@ -1,5 +1,5 @@
 import { RsiServer } from '@rsi/server';
-import * as ml from '@rsi-plugins/media';
+import * as media from '@rsi-plugins/media';
 
 const DEFAULTRUNOPTIONS = {
   port: 3000,
@@ -26,9 +26,9 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 /**
  * load plugins and add them to the server
  */
-const medialibraryPlugins = ml.getPlugins();
+const mediaPlugins = media.getPlugins();
 
-for (let index = 0; index < medialibraryPlugins.length; index++) {
-  const plugin = medialibraryPlugins[index];
+for (let index = 0; index < mediaPlugins.length; index++) {
+  const plugin = mediaPlugins[index];
   server.addService(new plugin());
 }

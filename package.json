@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc && jasmine --config=./jasmine.json",
     "build": "tsc",
     "watch": "npm-watch",
     "start": "node dist/index.js --port 3000",
@@ -29,7 +29,10 @@
     "npm-watch": "^0.3.0"
   },
   "devDependencies": {
-    "typescript": "^2.6.2",
-    "@types/node": "^9.3.0"
+    "@types/jasmine": "^2.8.6",
+    "@types/node": "^9.3.0",
+    "jasmine": "^3.0.0",
+    "request": "^2.83.0",
+    "typescript": "^2.6.2"
   }
 }
