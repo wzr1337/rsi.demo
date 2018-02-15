@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@rsi/server": "https://github.com/wzr1337/rsi.server",
+    "@rsi/serviceregistry": "https://github.com/wzr1337/rsi.serviceregistry",
     "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media",
     "command-line-args": "^3.0.5",
     "npm-watch": "^0.3.0"
