@@ -1,5 +1,6 @@
 import { RsiServer } from '@rsi/server';
 import * as media from '@rsi-plugins/media';
+import * as gardening from '@rsi-plugins/gardening';
 
 const DEFAULTRUNOPTIONS = {
   port: 3000,
@@ -31,4 +32,16 @@ const mediaPlugins = media.getPlugins();
 for (let index = 0; index < mediaPlugins.length; index++) {
   const plugin = mediaPlugins[index];
   server.addService(new plugin());
+}
+
+/**
+ * load plugins and add them to the server
+ */
+const gardeningPlugins = gardening.getPlugins();
+
+for (let index = 0; index < gardeningPlugins.length; index++) {
+  const plugin = gardeningPlugins[index];
+  let foo = new plugin();
+  console.log(foo.name, foo.id);
+  server.addService(foo);
 }

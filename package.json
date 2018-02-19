@@ -23,8 +23,9 @@
   "author": "Dr. Patrick Bartsch",
   "license": "MIT",
   "dependencies": {
-    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/ReasourceAbstractClass",
+    "@rsi-plugins/gardening": "git+https://github.com/wzr1337/rsi-plugins.gardening.git",
     "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media#feature/ReasourceAbstractClass",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/ReasourceAbstractClass",
     "command-line-args": "^3.0.5",
     "npm-watch": "^0.3.0"
   },
