@@ -20,7 +20,7 @@ $ npm run build
 To run the server, use
 
 ```sh
-$ http_proxy='' npm run start
+$ http_proxy='' npm run serve
 ```
 
 **Note** Please ensure that proxy settings are set appropriately for your environment.
