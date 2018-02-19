@@ -9,6 +9,8 @@ const DEFAULTRUNOPTIONS:RunOptions = {
   verbosity: "error"
 };
 
+process.env.HTTP_PROXY = '';
+
 let server:RsiServer;
 
 export function startServer():Promise<RunOptions> {

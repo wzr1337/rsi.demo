@@ -1,11 +1,13 @@
 import { RsiServer } from '@rsi/server';
 import * as media from '@rsi-plugins/media';
 import * as gardening from '@rsi-plugins/gardening';
+import { ServiceRegistry } from '@rsi/serviceregistry';
 
 const DEFAULTRUNOPTIONS = {
   port: 3000,
   verbosity: 'silly',
-  base: ''
+  base: '',
+  serviceRegistry: 'http://localhost:3600'
 };
 
 /**
@@ -20,6 +22,10 @@ const optionDefinitions = [
 ]
 const cla = commandLineArgs(optionDefinitions);
 /** end parse command line argunments */
+
+
+const serviceRegistry:ServiceRegistry = new ServiceRegistry(3600);
+serviceRegistry.init();
 
 const server: RsiServer = new RsiServer();
 server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
