@@ -1,19 +1,18 @@
-import { join } from 'path';
-import { RsiServer } from '@rsi/server';
-import * as media from '@rsi-plugins/media';
-import { RunOptions } from '@rsi/server/dist/types';
+import * as media from "@rsi-plugins/media";
+import { IRunOptions, RsiServer } from "@rsi/server";
+import { join } from "path";
 
-const DEFAULTRUNOPTIONS:RunOptions = {
+const DEFAULTRUNOPTIONS: IRunOptions = {
+  base: "",
   port: 3000,
-  base: '',
   verbosity: "error"
 };
 
-process.env.HTTP_PROXY = '';
+process.env.HTTP_PROXY = "";
 
-let server:RsiServer;
+let server: RsiServer;
 
-export function startServer():Promise<RunOptions> {
+export function startServer(): Promise<IRunOptions> {
   return new Promise(async (resolve, reject) => {
     server = new RsiServer();
     /**
@@ -22,17 +21,16 @@ export function startServer():Promise<RunOptions> {
     const mediaPlugins = media.getPlugins();
 
     await server.run(DEFAULTRUNOPTIONS);
-    for (let index = 0; index < mediaPlugins.length; index++) {
-      const plugin = mediaPlugins[index];
+    for (const plugin of mediaPlugins) {
       server.addService(new plugin());
     }
     resolve(DEFAULTRUNOPTIONS);
   });
-};
+}
 
-export function stopServer():Promise<{}> {
+export function stopServer(): Promise<{}> {
   return new Promise(async (resolve, reject) => {
     await server.stop();
     resolve();
-  })
-};
+  });
+}

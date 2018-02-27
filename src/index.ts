@@ -1,30 +1,29 @@
-import { RsiServer } from '@rsi/server';
-import * as media from '@rsi-plugins/media';
-import * as gardening from '@rsi-plugins/gardening';
-import { ServiceRegistry } from '@rsi/serviceregistry';
+import * as gardening from "@rsi-plugins/gardening";
+import * as media from "@rsi-plugins/media";
+import { RsiServer } from "@rsi/server";
+import { ServiceRegistry } from "@rsi/serviceregistry";
+import * as commandLineArgs from "command-line-args";
 
 const DEFAULTRUNOPTIONS = {
+  base: "",
   port: 3000,
-  verbosity: 'silly',
-  base: '',
-  serviceRegistry: 'http://localhost:3600'
+  serviceRegistry: "http://localhost:3600",
+  verbosity: "silly"
 };
 
 /**
-* parse command line options
-*/
-const commandLineArgs = require('command-line-args')
+ * parse command line options
+ */
 const optionDefinitions = [
-  { name: 'verbosity', alias: 'v', type: String },
-  { name: 'port', alias: 'p', type: Number },
-  { name: 'base', alias: 'b', type: String },
-  { name: 'serviceRegistry', alias: 's', type: String }
-]
+  { name: "verbosity", alias: "v", type: String },
+  { name: "port", alias: "p", type: Number },
+  { name: "base", alias: "b", type: String },
+  { name: "serviceRegistry", alias: "s", type: String }
+];
 const cla = commandLineArgs(optionDefinitions);
 /** end parse command line argunments */
 
-
-const serviceRegistry:ServiceRegistry = new ServiceRegistry(3600);
+const serviceRegistry: ServiceRegistry = new ServiceRegistry(3600);
 serviceRegistry.init();
 
 const server: RsiServer = new RsiServer();
@@ -35,8 +34,7 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
  */
 const mediaPlugins = media.getPlugins();
 
-for (let index = 0; index < mediaPlugins.length; index++) {
-  const plugin = mediaPlugins[index];
+for (const plugin of mediaPlugins) {
   server.addService(new plugin());
 }
 
@@ -45,9 +43,6 @@ for (let index = 0; index < mediaPlugins.length; index++) {
  */
 const gardeningPlugins = gardening.getPlugins();
 
-for (let index = 0; index < gardeningPlugins.length; index++) {
-  const plugin = gardeningPlugins[index];
-  let foo = new plugin();
-  console.log(foo.name, foo.id);
-  server.addService(foo);
+for (const plugin of gardeningPlugins) {
+  server.addService(new plugin());
 }

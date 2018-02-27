@@ -14,19 +14,21 @@
     }
   },
   "scripts": {
-    "test": "tsc && jasmine --config=./jasmine.json",
-    "build": "tsc",
+    "test": "npm run build:prod && jasmine --config=./jasmine.json",
+    "build": "npm run build:dev",
+    "build:dev": "tsc",
+    "build:prod": "tslint -p ./tsconfig.json && tsc",
     "watch": "npm-watch",
     "start": "node dist/index.js --port 3000",
-    "serve": "tsc && node dist/index.js"
+    "serve": "npm run build && node dist/index.js"
   },
   "author": "Dr. Patrick Bartsch",
   "license": "MIT",
   "dependencies": {
-    "@rsi/server": "https://github.com/wzr1337/rsi.server",
-    "@rsi/serviceregistry": "https://github.com/wzr1337/rsi.serviceregistry",
     "@rsi-plugins/gardening": "git+https://github.com/wzr1337/rsi-plugins.gardening.git",
     "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/tslint",
+    "@rsi/serviceregistry": "git+https://github.com/wzr1337/rsi.serviceregistry.git",
     "command-line-args": "^3.0.5",
     "npm-watch": "^0.3.0"
   },
@@ -35,6 +37,7 @@
     "@types/node": "^9.3.0",
     "jasmine": "^3.0.0",
     "request": "^2.83.0",
-    "typescript": "^2.6.2"
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
   }
 }
