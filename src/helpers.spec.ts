@@ -1,4 +1,4 @@
-import * as media from "@rsi-plugins/media";
+import * as media from "@rsi-plugins/gardening";
 import { IRunOptions, RsiServer } from "@rsi/server";
 import { join } from "path";
 

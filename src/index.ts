@@ -1,7 +1,7 @@
 import * as gardening from "@rsi-plugins/gardening";
-import * as media from "@rsi-plugins/media";
+// import * as media from "@rsi-plugins/media";
 import { RsiServer } from "@rsi/server";
-import { ServiceRegistry } from "@rsi/serviceregistry";
+// import { ServiceRegistry } from "@rsi/serviceregistry";
 import * as commandLineArgs from "command-line-args";
 
 const DEFAULTRUNOPTIONS = {
@@ -23,8 +23,8 @@ const optionDefinitions = [
 const cla = commandLineArgs(optionDefinitions);
 /** end parse command line argunments */
 
-const serviceRegistry: ServiceRegistry = new ServiceRegistry(3600);
-serviceRegistry.init();
+// const serviceRegistry: ServiceRegistry = new ServiceRegistry(3600);
+// serviceRegistry.init();
 
 const server: RsiServer = new RsiServer();
 server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
@@ -32,11 +32,11 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 /**
  * load plugins and add them to the server
  */
-const mediaPlugins = media.getPlugins();
+// const mediaPlugins = media.getPlugins();
 
-for (const plugin of mediaPlugins) {
-  server.addService(new plugin());
-}
+// for (const plugin of mediaPlugins) {
+//  server.addService(new plugin());
+// }
 
 /**
  * load plugins and add them to the server
