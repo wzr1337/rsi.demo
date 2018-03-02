@@ -1,6 +1,6 @@
 {
   "name": "rsi.demo",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A demo application that spins up an rsi server.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,8 +27,8 @@
   "dependencies": {
     "@rsi-plugins/gardening": "git+https://github.com/wzr1337/rsi-plugins.gardening.git#feature/tslint",
     "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media",
-    "@rsi/server": "https://github.com/wzr1337/rsi.server#feature/tslint",
-    "@rsi/serviceregistry": "git+https://github.com/wzr1337/rsi.serviceregistry.git",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#master",
+    "@rsi/serviceregistry": "git+https://github.com/wzr1337/rsi.serviceregistry.git#feature/tslint",
     "command-line-args": "^3.0.5",
     "npm-watch": "^0.3.0"
   },
