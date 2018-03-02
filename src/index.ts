@@ -1,5 +1,5 @@
 import { Gardening, getPlugins as getGardeningPlugins} from "@rsi-plugins/gardening";
-// import * as media from "@rsi-plugins/media";
+import { getPlugins as getMediaPlugins} from "@rsi-plugins/media";
 import { RsiServer } from "@rsi/server";
 import { ServiceRegistry } from "@rsi/serviceregistry";
 import * as commandLineArgs from "command-line-args";
@@ -32,11 +32,11 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 /**
  * load plugins and add them to the server
  */
-// const mediaPlugins = media.getPlugins();
+const mediaPlugins = getMediaPlugins();
 
-// for (const plugin of mediaPlugins) {
-//  server.addService(new plugin());
-// }
+for (const plugin of mediaPlugins) {
+  server.addService(new plugin());
+}
 
 /**
  * load plugins and add them to the server
@@ -44,6 +44,5 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 const gardeningPlugins = getGardeningPlugins();
 
 for (const plugin of gardeningPlugins) {
-  const t: Gardening = new plugin();
-  server.addService(t);
+  server.addService(new plugin());
 }
