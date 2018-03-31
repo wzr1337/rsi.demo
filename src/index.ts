@@ -27,7 +27,9 @@ const serviceRegistry: ServiceRegistry = new ServiceRegistry(3600);
 serviceRegistry.init();
 
 const server: RsiServer = new RsiServer();
-server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
+server.run(Object.assign(DEFAULTRUNOPTIONS, cla)).then((data) => {
+  console.log("Server running:", Object.assign(DEFAULTRUNOPTIONS, cla));
+});
 
 /**
  * load plugins and add them to the server
@@ -35,14 +37,14 @@ server.run(Object.assign(DEFAULTRUNOPTIONS, cla));
 const mediaPlugins = getMediaPlugins();
 
 for (const plugin of mediaPlugins) {
-  server.addService(new plugin());
+  const svc = new plugin();
+  server.addService(svc);
 }
 
 /**
  * load plugins and add them to the server
  */
 const gardeningPlugins = getGardeningPlugins();
-
 for (const plugin of gardeningPlugins) {
-  server.addService(new plugin());
+   server.addService(new plugin());
 }

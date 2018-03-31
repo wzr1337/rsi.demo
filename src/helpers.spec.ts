@@ -1,4 +1,5 @@
 import { Gardening, getPlugins as getGardeningPlugins } from "@rsi-plugins/gardening";
+import { getPlugins as getMediaPlugins } from "@rsi-plugins/media";
 import { IRunOptions, RsiServer } from "@rsi/server";
 import { join } from "path";
 
@@ -24,6 +25,16 @@ export function startServer(): Promise<IRunOptions> {
     for (const plugin of plugins) {
       server.addService(new Gardening());
     }
+
+    /**
+     * load plugins and add them to the server
+     */
+    const mediaPlugins = getMediaPlugins();
+
+    for (const plugin of mediaPlugins) {
+      server.addService(new plugin());
+    }
+
     resolve(DEFAULTRUNOPTIONS);
   });
 }

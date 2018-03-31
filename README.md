@@ -35,3 +35,9 @@ after you `npm run build` it
 | --port         | -p              | number | the port number to listen on                   |
 | --base         | -b              | string | the base url                                   |
 | --verbosity    | -v              | string | the winston log level to plot into the console |
+
+## Contribution
+I welcome everyone to contribute to this repo. Let us build awesome software - together. Please see [Contribution](CONTRIBUTION.md) for some rules to follow.
+
+## LICENSE
+Please see [LICENSE](LICENSE) for more details.
