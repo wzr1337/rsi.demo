@@ -1,8 +1,12 @@
 import { Gardening, getPlugins as getGardeningPlugins} from "@rsi-plugins/gardening";
 import { getPlugins as getMediaPlugins} from "@rsi-plugins/media";
+import { Cdn } from "@rsi/cdn";
+import { IRsiLoggerInstance, RsiLogger } from "@rsi/core";
 import { RsiServer } from "@rsi/server";
 import { ServiceRegistry } from "@rsi/serviceregistry";
 import * as commandLineArgs from "command-line-args";
+import { readFileSync } from "fs";
+import * as path from "path";
 
 const DEFAULTRUNOPTIONS = {
   base: "",
@@ -10,6 +14,8 @@ const DEFAULTRUNOPTIONS = {
   serviceRegistry: "http://localhost:3600",
   verbosity: "silly"
 };
+
+const logger: IRsiLoggerInstance = RsiLogger.getInstance().getLogger("demo", "silly");
 
 /**
  * parse command line options
@@ -26,9 +32,11 @@ const cla = commandLineArgs(optionDefinitions);
 const serviceRegistry: ServiceRegistry = new ServiceRegistry(3600);
 serviceRegistry.init();
 
+const opts = Object.assign(DEFAULTRUNOPTIONS, cla);
+
 const server: RsiServer = new RsiServer();
-server.run(Object.assign(DEFAULTRUNOPTIONS, cla)).then((data) => {
-  console.log("Server running:", Object.assign(DEFAULTRUNOPTIONS, cla));
+server.run(opts).then((data) => {
+  logger.info("Server running:", opts);
 });
 
 /**
@@ -48,3 +56,8 @@ const gardeningPlugins = getGardeningPlugins();
 for (const plugin of gardeningPlugins) {
    server.addService(new plugin());
 }
+
+// cdn demo
+logger.info(Cdn.getInstance().register("images", "curlies.jpg", (image: string): Buffer => {
+  return readFileSync(path.join(__dirname, "../curlies.png"));
+}));
