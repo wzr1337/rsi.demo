@@ -23,7 +23,7 @@ export function startServer(): Promise<IRunOptions> {
 
     await server.run(DEFAULTRUNOPTIONS);
     for (const plugin of plugins) {
-      server.addService(new Gardening());
+      server.addService(Gardening.getInstance());
     }
 
     /**
@@ -32,7 +32,7 @@ export function startServer(): Promise<IRunOptions> {
     const mediaPlugins = getMediaPlugins();
 
     for (const plugin of mediaPlugins) {
-      server.addService(new plugin());
+      server.addService(plugin.getInstance());
     }
 
     resolve(DEFAULTRUNOPTIONS);
