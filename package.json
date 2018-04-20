@@ -30,7 +30,7 @@
     "@rsi/cdn": "https://github.com/wzr1337/rsi.cdn#0.2.8",
     "@rsi/core": "git+https://github.com/wzr1337/rsi.core.git#0.2.7",
     "@rsi/server": "https://github.com/wzr1337/rsi.server#0.2.4",
-    "@rsi/serviceregistry": "https://github.com/wzr1337/rsi.serviceregistry.git#feature/tslint",
+    "@rsi/serviceregistry": "https://github.com/wzr1337/rsi.serviceregistry.git#0.2.0",
     "@types/winston": "^2.3.9",
     "command-line-args": "^5.0.2",
     "npm-watch": "^0.3.0"
