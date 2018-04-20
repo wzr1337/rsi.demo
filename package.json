@@ -20,15 +20,15 @@
     "build:prod": "tslint -p ./tsconfig.json && tsc",
     "watch": "npm-watch",
     "start": "node dist/index.js --port 3000",
-    "serve": "npm run build && node dist/index.js"
+    "serve": "npm run build && node --inspect dist/index.js"
   },
   "author": "Dr. Patrick Bartsch",
   "license": "MIT",
   "dependencies": {
-    "@rsi-plugins/gardening": "https://github.com/wzr1337/rsi-plugins.gardening.git#0.2.1",
-    "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media#0.2.5",
-    "@rsi/cdn": "https://github.com/wzr1337/rsi.cdn#0.2.6",
-    "@rsi/server": "https://github.com/wzr1337/rsi.server#0.2.3",
+    "@rsi-plugins/gardening": "https://github.com/wzr1337/rsi-plugins.gardening.git#0.2.2",
+    "@rsi-plugins/media": "https://github.com/wzr1337/rsi-plugins.media#0.2.6",
+    "@rsi/cdn": "https://github.com/wzr1337/rsi.cdn#0.2.8",
+    "@rsi/server": "https://github.com/wzr1337/rsi.server#0.2.4",
     "@rsi/serviceregistry": "https://github.com/wzr1337/rsi.serviceregistry.git#feature/tslint",
     "@types/winston": "^2.3.9",
     "command-line-args": "^3.0.5",
