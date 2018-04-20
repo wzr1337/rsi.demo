@@ -45,7 +45,8 @@ server.run(opts).then((data) => {
 const mediaPlugins = getMediaPlugins();
 
 for (const plugin of mediaPlugins) {
-  server.addService(plugin.getInstance());
+  const svc = plugin.getInstance();
+  server.addService(svc);
 }
 
 /**
@@ -53,7 +54,7 @@ for (const plugin of mediaPlugins) {
  */
 const gardeningPlugins = getGardeningPlugins();
 for (const plugin of gardeningPlugins) {
-   server.addService(plugin.getInstance());
+  server.addService(plugin.getInstance());
 }
 
 // cdn demo
